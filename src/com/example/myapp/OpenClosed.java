@@ -18,39 +18,42 @@ public class OpenClosed
     }
 }
 
-class Customer
+abstract class Entity
 {
     private int Id;
     private String name;
 
-    private HashSet<String> orderList = new HashSet<>();
+    protected HashSet<String> myList = new HashSet<>();
 
+    public HashSet<String> getList ()
+    {
+        return myList;
+    }
+}
+
+class Customer extends Entity
+{
     public Customer ()
     {
-        this.orderList.add("Apple");
+        this.myList.add("Apple");
     }
 
     public HashSet<String> getOrders ()
     {
-        return orderList;
+        return this.myList;
     }
 }
 
-class Vendor
+class Vendor extends Entity
 {
-    private int Id;
-    private String name;
-
-    private HashSet<String> productList = new HashSet<>();
-
     public Vendor ()
     {
-        this.productList.add("Apple");
-        this.productList.add("Banana");
+        this.myList.add("Apple");
+        this.myList.add("Banana");
     }
 
     public HashSet<String> getProducts ()
     {
-        return productList;
+        return this.myList;
     }
 }
