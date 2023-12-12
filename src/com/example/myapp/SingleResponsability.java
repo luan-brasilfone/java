@@ -5,10 +5,12 @@ import java.util.HashSet;
 
 public class SingleResponsability
 {
-    public boolean execute (String product)
+    public void execute ()
     {
         ProductController controller = new ProductController();
-        return controller.saveProduct(product);
+
+        boolean result = controller.saveProduct("teste");
+        System.out.println("Single Responsabilty: " + result);
     }
 }
 
