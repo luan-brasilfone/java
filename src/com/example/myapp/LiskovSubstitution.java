@@ -9,11 +9,26 @@ public class LiskovSubstitution implements IExecutable
 
         System.out.print("Liskov Substition: ");
         System.out.print("Bird peck and fly: " + bird.peck() + ", " + bird.fly());
-        System.out.println(" - Penguim peck and fly: " + penguim.peck() + ", " + penguim.fly());
+        System.out.println(" - Penguim peck and fly: " + penguim.peck() + ", " + penguim.jump());
     }
 }
 
-class Bird
+interface Flier
+{
+    public String fly();
+}
+
+interface Pecker
+{
+    public String peck();
+}
+
+interface Jumper
+{
+    public String jump();
+}
+
+class Bird implements Flier, Pecker
 {
     public String peck ()
     {
@@ -26,16 +41,15 @@ class Bird
     }
 }
 
-class Penguim extends Bird
+class Penguim implements Pecker, Jumper
 {
-    @Override
-    public String fly ()
-    {
-        return this.jump();
-    }
-
     public String jump ()
     {
         return "Jumping";
+    }
+
+    public String peck ()
+    {
+        return "Pecking"; 
     }
 }
