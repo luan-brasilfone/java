@@ -2,7 +2,7 @@ package com.example.myapp;
 
 import java.util.HashSet;
 
-public class OpenClosed
+public class OpenClosed implements IExecutable
 {
     public void execute ()
     {

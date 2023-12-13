@@ -3,7 +3,7 @@ package com.example.myapp;
 import java.util.Set;
 import java.util.HashSet;
 
-public class SingleResponsability
+public class SingleResponsability implements IExecutable
 {
     public void execute ()
     {
