@@ -8,7 +8,8 @@ public class Main
             new SingleResponsability(),
             new OpenClosed(),
             new LiskovSubstitution(),
-            new InterfaceSegregation()
+            new InterfaceSegregation(),
+            new DependencyInversion()
         };
 
         for (IExecutable iExecutable : executable)
