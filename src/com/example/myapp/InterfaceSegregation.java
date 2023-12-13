@@ -15,32 +15,30 @@ public class InterfaceSegregation implements IExecutable
     }
 }
 
-interface Vehicle
+interface Driveable
 {
     public String drive ();
+}
+
+interface Flyable
+{
     public String fly ();
+}
+
+interface Sailable
+{
     public String sail ();
 }
 
-class Car implements Vehicle
+class Car implements Driveable
 {
     public String drive ()
     {
         return "Driving";
     }
-
-    public String fly ()
-    {
-        throw new UnsupportedOperationException("Cars cannot fly");
-    }
-
-    public String sail ()
-    {
-        throw new UnsupportedOperationException("Cars cannot sail");
-    }
 }
 
-class Plane implements Vehicle
+class Plane implements Driveable, Flyable
 {
     public String drive ()
     {
@@ -51,25 +49,10 @@ class Plane implements Vehicle
     {
         return "Flying";
     }
-
-    public String sail ()
-    {
-        throw new UnsupportedOperationException("Planes cannot sail");
-    }
 }
 
-class Boat implements Vehicle
+class Boat implements Sailable
 {
-    public String drive ()
-    {
-        throw new UnsupportedOperationException("Boats cannot drive");
-    }
-
-    public String fly ()
-    {
-        throw new UnsupportedOperationException("Boats cannot fly");
-    }
-
     public String sail ()
     {
         return "Sailing";
