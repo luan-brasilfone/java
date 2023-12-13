@@ -7,7 +7,8 @@ public class Main
         IExecutable[] executable = {
             new SingleResponsability(),
             new OpenClosed(),
-            new LiskovSubstitution()
+            new LiskovSubstitution(),
+            new InterfaceSegregation()
         };
 
         for (IExecutable iExecutable : executable)
