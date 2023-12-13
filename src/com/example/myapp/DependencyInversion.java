@@ -6,7 +6,8 @@ public class DependencyInversion implements IExecutable
 {
     public void execute ()
     {
-        PersistenceService persistenceService = new PersistenceService();
+        PersistenceDirector persistenceDirector = new PersistenceDirector();
+        PersistenceService persistenceService = persistenceDirector.getPersistenceService();
 
         boolean result = persistenceService.save("test");
 
@@ -14,17 +15,31 @@ public class DependencyInversion implements IExecutable
     }
 }
 
+class PersistenceDirector
+{
+    public PersistenceService getPersistenceService ()
+    {
+        HashSet<String> database = new HashSet<>();
+        return new PersistenceService(database);
+    }
+}
+
 class PersistenceService
 {
-    HashSet<String> database = new HashSet<>();
+    private HashSet<String> database;
+
+    public PersistenceService (HashSet<String> database)
+    {
+        this.database = database;
+    }
 
     public boolean save (String entity)
     {
-        return database.add(entity);
+        return this.database.add(entity);
     }
 
     public boolean delete (String entity)
     {
-        return database.remove(entity);
+        return this.database.remove(entity);
     }
 }
