@@ -9,7 +9,8 @@ public class Main
             new OpenClosed(),
             new LiskovSubstitution(),
             new InterfaceSegregation(),
-            new DependencyInversion()
+            new DependencyInversion(),
+            new Builder()
         };
 
         for (IExecutable iExecutable : executable)
