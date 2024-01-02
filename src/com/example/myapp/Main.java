@@ -10,7 +10,8 @@ public class Main
             new LiskovSubstitution(),
             new InterfaceSegregation(),
             new DependencyInversion(),
-            new Builder()
+            new Builder(),
+            new SimpleFactory()
         };
 
         for (IExecutable iExecutable : executable)
